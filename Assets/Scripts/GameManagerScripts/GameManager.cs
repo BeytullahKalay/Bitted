@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-
     private void Awake()
     {
         if (instance == null)
@@ -18,6 +17,8 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
+
 
     [Header("Player and Bullet Particles")]
     public ParticleSystem bulletExplosionPrefab;
@@ -35,6 +36,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Enemy Particle")]
     public ParticleSystem enemyParticle;
+
+    [Header("Player Prefab")]
+    public GameObject playerPrefab;
 
 
 
@@ -56,6 +60,11 @@ public class GameManager : MonoBehaviour
         particleName.transform.position = playPos;
         particleName.transform.rotation = playRotation * Quaternion.Euler(0,0,90);
         particleName.Play();
+    }
+
+    public void SetPlayerColorToWhite()
+    {
+        playerPrefab.GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
 
 }

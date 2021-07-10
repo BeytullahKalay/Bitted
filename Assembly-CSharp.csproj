@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\CheckerScripts\CheckerTriggerArea.cs" />
     <Compile Include="Assets\Scripts\DoorScripts\Door.cs" />
     <Compile Include="Assets\Scripts\GameManagerScripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GuiltyColliderScripts\GuiltyCollider.cs" />
     <Compile Include="Assets\Scripts\KeyScripts\Key.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\CollisionDetection.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\GuiltyValue.cs" />

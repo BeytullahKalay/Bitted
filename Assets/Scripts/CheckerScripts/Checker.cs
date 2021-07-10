@@ -79,7 +79,6 @@ public class Checker : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
 
-        print("Work!!!");
 
         if (_player != null && _player.GetComponentInChildren<GuiltyValue>().isGuilty)
         {
@@ -129,7 +128,6 @@ public class Checker : MonoBehaviour
 
         if (collision.gameObject.layer == 9) // 9 = Enemy Layer
         {
-            print("enemies collide");
 
             //play particle effect
             PlayDeathParticleEffect();
