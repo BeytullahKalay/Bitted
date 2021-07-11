@@ -9,6 +9,7 @@ public class CollisionDetection : MonoBehaviour
     {
         OnPlayerDeath += PlayDeathEffect;
         OnPlayerDeath += SetGuiltyBoolean;
+        OnPlayerDeath += CallDeathIncreaseMethod;
         OnPlayerDeath += CallDestroyMethod;
     }
 
@@ -17,7 +18,6 @@ public class CollisionDetection : MonoBehaviour
     {
         if (collision.gameObject.layer == 10 || collision.gameObject.layer == 9) // 10 = Wall Layer ----- 9 = Enemy Layer
         {
-            FindObjectOfType<GameManager>().SetPlayerColorToWhite();
             OnPlayerDeath();
         }
     }
@@ -39,6 +39,11 @@ public class CollisionDetection : MonoBehaviour
     private void SetGuiltyBoolean()
     {
         gameObject.GetComponent<GuiltyValue>().isGuilty = false;
+    }
+
+    private void CallDeathIncreaseMethod()
+    {
+        GameObject.Find("DeathCounter").GetComponent<DeathCounter>().IncreaseDeathCount();
     }
 
 }

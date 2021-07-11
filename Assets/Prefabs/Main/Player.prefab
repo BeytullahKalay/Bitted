@@ -274,7 +274,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3883971309170782344, guid: a5f8ae3a86c58da4399f88958ef4b994,
     type: 3}
   shootKey: 32
-  shootsPerSecond: 5
+  shootsPerSecond: 7
+  randomShootAngelMinMax: 5
 --- !u!114 &198848590
 MonoBehaviour:
   m_ObjectHideFlags: 0

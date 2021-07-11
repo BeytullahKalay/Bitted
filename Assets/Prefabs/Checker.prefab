@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8536125386573821792}
   - component: {fileID: 8536125386573821796}
   - component: {fileID: 8536125386573821795}
+  - component: {fileID: -416462952712873864}
   m_Layer: 9
   m_Name: Checker
   m_TagString: Enemy
@@ -151,6 +152,20 @@ MonoBehaviour:
   _normalMoveSpeed: 20
   _checkTime: 2
   _returnPosAfterSeconds: 2
+  playerDetectedByBullet: 0
+--- !u!114 &-416462952712873864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8536125386573821807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 999a243573fc9e24197ac4d13060d0ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 100
 --- !u!1 &8536125387669030747
 GameObject:
   m_ObjectHideFlags: 0

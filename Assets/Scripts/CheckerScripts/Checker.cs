@@ -14,6 +14,7 @@ public class Checker : MonoBehaviour
     [SerializeField] private float _checkTime = 2f;
     [SerializeField] private float _returnPosAfterSeconds = 2f;
 
+    public bool playerDetectedByBullet;
 
     bool playerDetected;
     bool canMoveTheStartPosition;
@@ -44,13 +45,16 @@ public class Checker : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player");
 
+
         if (_player != null)
         {
             playerDetected = GetComponentInChildren<CheckerTriggerArea>().playerDetector;
 
-            if (playerDetected)
+
+            if (playerDetected || playerDetectedByBullet)
             {
                 GetComponentInChildren<CheckerTriggerArea>().playerDetector = false;
+                playerDetectedByBullet = false;
                 StartCoroutine(WaitAndDecideToAction(_checkTime));
             }
         }
@@ -72,7 +76,7 @@ public class Checker : MonoBehaviour
     }
 
 
-    private IEnumerator WaitAndDecideToAction(float waitTime)
+    public IEnumerator WaitAndDecideToAction(float waitTime)
     {
 
         sr.color = detectMat.color; // Yellow
@@ -128,16 +132,20 @@ public class Checker : MonoBehaviour
 
         if (collision.gameObject.layer == 9) // 9 = Enemy Layer
         {
-
-            //play particle effect
-            PlayDeathParticleEffect();
-
-            //do camere shake
-            GameObject.Find("Camera").GetComponentInChildren<CameraShake>().Shake(.2f, .1f);
-            
-            //destroy
-            Destroy(gameObject);
+            CheckerDied();
         }
+    }
+
+    public void CheckerDied()
+    {
+        //play particle effect
+        PlayDeathParticleEffect();
+
+        //do camere shake
+        GameObject.Find("Camera").GetComponentInChildren<CameraShake>().Shake(.2f, .1f);
+
+        //destroy
+        Destroy(gameObject);
     }
 
     private void PlayDeathParticleEffect()

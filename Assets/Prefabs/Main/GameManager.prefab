@@ -61,6 +61,10 @@ MonoBehaviour:
   doorParticle_O: {fileID: 176057637846950900}
   doorParticle_Y: {fileID: 2765482358316386434}
   enemyParticle: {fileID: 6785414591759120122}
+  systemSound: {fileID: 3945944468774097981, guid: 420170abb115a874b8de869738639233,
+    type: 3}
+  virusSound: {fileID: 4649182080461273266, guid: 2ced3094013f8ef40b3b45d0795c7747,
+    type: 3}
 --- !u!1001 &2407835668468037626
 PrefabInstance:
   m_ObjectHideFlags: 0

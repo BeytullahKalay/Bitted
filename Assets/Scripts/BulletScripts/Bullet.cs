@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private float _bulletMoveSpeed = 15f;
 
+    [SerializeField] private int _bulletDamage = 25;
+
 
     private void Start()
     {
@@ -24,10 +26,16 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("Wall") || collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Wall") || collision.CompareTag("Enemy")
+            || collision.gameObject.layer == 12) // 12 == Door Layer
         {
             PlayExplosionEffect();
             Destroy(gameObject);
+        }
+
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<CheckerHealthSystem>().TakeDamage(_bulletDamage);
         }
     }
 

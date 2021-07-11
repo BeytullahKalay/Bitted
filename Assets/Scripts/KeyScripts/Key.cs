@@ -8,10 +8,15 @@ public class Key : MonoBehaviour
     public enum keyColor { Purple,Orange,Yellow};
     public keyColor myColor;
 
+    public int visibleDeathCount;
+
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        FindObjectOfType<DeathChecker>().keys.Add(gameObject);
+        gameObject.SetActive(false);
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

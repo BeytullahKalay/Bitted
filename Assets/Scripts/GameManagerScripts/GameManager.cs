@@ -37,8 +37,11 @@ public class GameManager : MonoBehaviour
     [Header("Enemy Particle")]
     public ParticleSystem enemyParticle;
 
-    [Header("Player Prefab")]
-    public GameObject playerPrefab;
+    [Header("Sounds")]
+    public AudioSource systemSound;
+    public AudioSource virusSound;
+
+
 
 
 
@@ -58,13 +61,13 @@ public class GameManager : MonoBehaviour
     public void PlayParticle(ParticleSystem particleName,Vector3 playPos,Quaternion playRotation)
     {
         particleName.transform.position = playPos;
-        particleName.transform.rotation = playRotation * Quaternion.Euler(0,0,90);
+
+        particleName.transform.rotation = playRotation;
+
         particleName.Play();
     }
 
-    public void SetPlayerColorToWhite()
-    {
-        playerPrefab.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-    }
+    
+
 
 }

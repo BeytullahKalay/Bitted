@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3565624039229976427}
   m_Layer: 0
   m_Name: Key-P
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +111,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf8a57c47287624aa51eaa593650a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myColor: 0
+  visibleDeathCount: 1

@@ -123,4 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWhiteMat: {fileID: 2100000, guid: 503050114856d144e8864a5175972c2c, type: 2}
   _doorForce: 10
-  myColor: 1
+  myColor: 0
