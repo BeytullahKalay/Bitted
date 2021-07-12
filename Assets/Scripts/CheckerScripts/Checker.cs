@@ -9,7 +9,7 @@ public class Checker : MonoBehaviour
     public Material attackMat;
     public Material pathNormalMat;
 
-    public enum CheckerColor { Violet, Blue};
+    public enum CheckerColor { Violet, Blue };
     public CheckerColor enemyColor;
 
     [SerializeField] private float _attackSpeed = 6f;
@@ -22,6 +22,7 @@ public class Checker : MonoBehaviour
 
     bool canMoveTheStartPosition;
     bool stillAttackToPlayer;
+    //bool canDetect;
 
     private Material mat;
 
@@ -29,7 +30,9 @@ public class Checker : MonoBehaviour
     SpriteRenderer sr;
 
     GameObject _player;
-    Vector3 _startPos;
+    public Vector3 _startPos;
+
+
 
     void Start()
     {
@@ -49,7 +52,7 @@ public class Checker : MonoBehaviour
         }
 
 
-        _startPos = transform.position;
+        _startPos = transform.position; // ATTENTION HERE!!
     }
 
     void Update()
@@ -68,11 +71,20 @@ public class Checker : MonoBehaviour
         {
             playerDetected = GetComponentInChildren<CheckerTriggerArea>().playerDetector;
 
-            if (playerDetected || playerDetectedByBullet)
+
+
+            if ( playerDetected || playerDetectedByBullet)
             {
+   
+
                 GetComponentInChildren<CheckerTriggerArea>().playerDetector = false;
 
                 playerDetectedByBullet = false;
+
+                if (GetComponent<Patrol>() != null)
+                {
+                    GetComponent<Patrol>().previousPos = transform.position;
+                }
 
                 StartCoroutine(WaitAndDecideToAction(_checkTime));
             }
@@ -83,8 +95,9 @@ public class Checker : MonoBehaviour
     {
         if (canMoveTheStartPosition)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _startPos, _normalMoveSpeed * Time.deltaTime);
 
+
+            transform.position = Vector3.MoveTowards(transform.position, _startPos, _normalMoveSpeed * Time.deltaTime);
 
             if (transform.position == _startPos)
             {
@@ -92,7 +105,10 @@ public class Checker : MonoBehaviour
 
                 stillAttackToPlayer = false;
 
-                GetComponent<Patrol>().StartFollowPathCoroutine();
+                 if (GetComponent<Patrol>() != null)
+                {
+                    GetComponent<Patrol>().StartFollowPathCoroutine();
+                }
 
             }
 
@@ -110,6 +126,7 @@ public class Checker : MonoBehaviour
 
         if (_player != null && _player.GetComponentInChildren<GuiltyValue>().isGuilty)
         {
+
             if (!stillAttackToPlayer)
             {
                 AttackToPlayer();
@@ -118,13 +135,8 @@ public class Checker : MonoBehaviour
         else if (_player != null && !_player.GetComponentInChildren<GuiltyValue>().isGuilty)
         {
             sr.color = mat.color;
-
-        }
-        else
-        {
             StartCoroutine(ReturnToPosition(_returnPosAfterSeconds));
         }
-
     }
 
     private void AttackToPlayer()
@@ -132,7 +144,7 @@ public class Checker : MonoBehaviour
 
 
         sr.color = attackMat.color; // Red
-        Vector3 attackDir = GameObject.FindObjectOfType<PolygonCollider2D>().transform.position - transform.position;
+        Vector3 attackDir = FindObjectOfType<PolygonCollider2D>().transform.position - transform.position;
         rb.AddForce(attackDir * _attackSpeed, ForceMode2D.Impulse);
         stillAttackToPlayer = true;
         GetComponentInChildren<CheckerTriggerArea>().playerDetector = false;
@@ -141,6 +153,7 @@ public class Checker : MonoBehaviour
 
     private IEnumerator ReturnToPosition(float WaitToReturnTime)
     {
+
         yield return new WaitForSeconds(WaitToReturnTime);
         rb.velocity = Vector3.zero;
         canMoveTheStartPosition = true;
@@ -168,6 +181,9 @@ public class Checker : MonoBehaviour
 
         //do camere shake
         GameObject.Find("Camera").GetComponentInChildren<CameraShake>().Shake(.2f, .1f);
+
+        //play death SFx
+        FindObjectOfType<GameManager>().explosionSound.Play();
 
         //destroy
         Destroy(gameObject);

@@ -20,9 +20,11 @@ public class Patrol : MonoBehaviour
 
     int targetWaypointIndex;
 
-    Vector3 previousPos;
+    public Vector3 previousPos;
 
     bool stopMoving;
+
+
 
     private void Start()
     {
@@ -51,10 +53,7 @@ public class Patrol : MonoBehaviour
 
         if (checkerScript.playerDetected || checkerScript.playerDetectedByBullet)
         {
-            print("Player Detected: " + checkerScript.playerDetected);
-            print("Player Detected By Bullet: " + checkerScript.playerDetectedByBullet);
-
-            print("coroutine stopped");
+            //print("coroutine stopped");
             StopCoroutine(FollowPath(waypointsPos));
             stopMoving = true;
             transform.position = previousPos;
@@ -64,14 +63,16 @@ public class Patrol : MonoBehaviour
 
     IEnumerator FollowPath( Transform[] waypointsPos)
     {
+        //print("coroutine started");
 
         if (previousPos == Vector3.zero)
         {
             transform.position = waypointsPos[0].position;
+            GetComponent<Checker>()._startPos = waypointsPos[0].position;
         }
         else
         {
-            transform.position = previousPos;
+            SetStartPos();
         }
 
 
@@ -81,16 +82,13 @@ public class Patrol : MonoBehaviour
         {
             if (!stopMoving)
             {
-                print("burada");
-                //transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
-
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 targetWaypoint.z = 0;
 
                 transform.position = Vector2.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
             }
 
-            previousPos = transform.position;
+            SetStartPos();
 
             playerDetectedByBullet = GetComponent<Checker>().playerDetectedByBullet;
 
@@ -106,11 +104,7 @@ public class Patrol : MonoBehaviour
             yield return null;
         }
 
-        if (playerDetectedByBullet)
-        {
-            print("bullet check true");
-        }
-        previousPos = transform.position;
+        SetStartPos();
 
 
     }
@@ -118,6 +112,7 @@ public class Patrol : MonoBehaviour
 
     public void StartFollowPathCoroutine()
     {
+        //print("in Start Follow Path");
         stopMoving = false;
         StartCoroutine(FollowPath(waypointsPos));
     }
@@ -135,6 +130,12 @@ public class Patrol : MonoBehaviour
         }
         Gizmos.DrawLine(previousPosition, startPosition);
 
+    }
+
+    private void SetStartPos()
+    {
+        previousPos = transform.position;
+        GetComponent<Checker>()._startPos = waypointsPos[0].position;
     }
 
 

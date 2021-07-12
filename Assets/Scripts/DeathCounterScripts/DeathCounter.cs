@@ -9,6 +9,7 @@ public class DeathCounter : MonoBehaviour
         deathCount = 0;
     }
 
+
     public void IncreaseDeathCount()
     {
         deathCount++;

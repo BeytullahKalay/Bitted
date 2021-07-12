@@ -11,16 +11,16 @@ public class DeathChecker : MonoBehaviour
 
         CheckDeathCounts(deathCount);
 
-        //RestartScene(deathCount);
+        RestartScene(deathCount);
     }
 
-    //private static void RestartScene(int deathCount)
-    //{
-    //    if (deathCount > 2)
-    //    {
-    //        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    //    }
-    //}
+    private static void RestartScene(int deathCount)
+    {
+        if (deathCount > 2)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
 
     private void CheckDeathCounts(int deathCount)
     {

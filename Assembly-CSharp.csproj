@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AlwaysGuiltyScripts\AlwaysGuilty.cs" />
     <Compile Include="Assets\Scripts\BulletScripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CameraScripts\CameraShake.cs" />
     <Compile Include="Assets\Scripts\CameraScripts\FollowPlayer.cs" />
@@ -81,6 +82,9 @@
     <Compile Include="Assets\Scripts\HiddenWallScripts\HiddenWall.cs" />
     <Compile Include="Assets\Scripts\HiddenWallScripts\KeyWall.cs" />
     <Compile Include="Assets\Scripts\KeyScripts\Key.cs" />
+    <Compile Include="Assets\Scripts\LastSceneScripts\GameFinishCollider.cs" />
+    <Compile Include="Assets\Scripts\MenuScripts\FirstMenu.cs" />
+    <Compile Include="Assets\Scripts\MenuScripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\CollisionDetection.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\GuiltyValue.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />

@@ -9,6 +9,8 @@ TagManager:
   - Wall
   - GM
   - Key
+  - Boss
+  - Silence
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Wall
   - Player
   - Door
-  - 
+  - Boss
   - 
   - 
   - 

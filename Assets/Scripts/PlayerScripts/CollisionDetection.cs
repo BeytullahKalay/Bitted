@@ -11,6 +11,7 @@ public class CollisionDetection : MonoBehaviour
         OnPlayerDeath += SetGuiltyBoolean;
         OnPlayerDeath += CallDeathIncreaseMethod;
         OnPlayerDeath += CallDestroyMethod;
+        OnPlayerDeath += PlayExplosionSFX;
     }
 
 
@@ -44,6 +45,11 @@ public class CollisionDetection : MonoBehaviour
     private void CallDeathIncreaseMethod()
     {
         GameObject.Find("DeathCounter").GetComponent<DeathCounter>().IncreaseDeathCount();
+    }
+
+    private void PlayExplosionSFX()
+    {
+        FindObjectOfType<GameManager>().explosionSound.Play();
     }
 
 }

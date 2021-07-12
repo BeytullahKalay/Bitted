@@ -18,7 +18,10 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
+    [Header("Sound Effects")]
+    public AudioSource shootSound;
+    public AudioSource hitSound;
+    public AudioSource explosionSound;
 
     [Header("Player and Bullet Particles")]
     public ParticleSystem bulletExplosionPrefab;
@@ -41,7 +44,13 @@ public class GameManager : MonoBehaviour
     public AudioSource systemSound;
     public AudioSource virusSound;
 
+    [Header("Player")]
+    public GameObject playerGameObject;
 
+    private void Start()
+    {
+        
+    }
 
 
 

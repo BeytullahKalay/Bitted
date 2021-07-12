@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
+        FindObjectOfType<GameManager>().shootSound.Play();
         GameObject.Find("Camera").GetComponentInChildren<CameraShake>().Shake(cameraShakeAmt, cameraShakeLenght);
     }
 
@@ -27,9 +28,14 @@ public class Bullet : MonoBehaviour
     {
 
         if (collision.CompareTag("Wall") || collision.CompareTag("Enemy")
-            || collision.gameObject.layer == 12) // 12 == Door Layer
+            || collision.gameObject.layer == 12 || collision.CompareTag("Boss")) // 12 == Door Layer
         {
+            playeSoundEffect();
             PlayExplosionEffect();
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Silence")
+        {
             Destroy(gameObject);
         }
 
@@ -45,5 +51,10 @@ public class Bullet : MonoBehaviour
         GameManager gameManager = GameObject.FindWithTag("GM").GetComponent<GameManager>();
 
         gameManager.PlayParticle(gameManager.bulletExplosionPrefab, transform.position, transform.rotation);
+    }
+
+    private void playeSoundEffect()
+    {
+        FindObjectOfType<GameManager>().hitSound.Play();
     }
 }

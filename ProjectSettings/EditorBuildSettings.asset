@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/yedekmenu2.unity
+    guid: 2c2551df3be13de46a30c15a7990712b
+  - enabled: 1
     path: Assets/Scenes/Scene1.unity
     guid: 95315f6eef8d34e4f86e545ee26d5c73
   - enabled: 1
@@ -29,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene8.unity
     guid: 1ccd8f69704ed104989bd2a2f37f855b
+  - enabled: 1
+    path: Assets/Scenes/Scene9.unity
+    guid: c3b648288294db5419908addb52acf76
+  - enabled: 1
+    path: Assets/Scenes/Scene10.unity
+    guid: 72620530938642542bb70fc361a68c9b
   m_configObjects: {}
