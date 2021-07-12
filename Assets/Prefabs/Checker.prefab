@@ -148,11 +148,14 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: d24e78e5c00656048a7f9ac489256663, type: 2}
   detectMat: {fileID: 2100000, guid: 65276159824022041b1045ad017d2184, type: 2}
   attackMat: {fileID: 2100000, guid: 1d3f55409dabcbb43938c42cb7e25e70, type: 2}
+  pathNormalMat: {fileID: 2100000, guid: 6789b43be0c661543bdba42961a4c7ea, type: 2}
+  enemyColor: 1
   _attackSpeed: 6
   _normalMoveSpeed: 20
   _checkTime: 2
   _returnPosAfterSeconds: 2
   playerDetectedByBullet: 0
+  playerDetected: 0
 --- !u!114 &-416462952712873864
 MonoBehaviour:
   m_ObjectHideFlags: 0

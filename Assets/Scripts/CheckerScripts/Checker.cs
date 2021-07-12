@@ -4,10 +4,13 @@ using UnityEngine;
 public class Checker : MonoBehaviour
 {
 
-
     public Material normalMat;
     public Material detectMat;
     public Material attackMat;
+    public Material pathNormalMat;
+
+    public enum CheckerColor { Violet, Blue};
+    public CheckerColor enemyColor;
 
     [SerializeField] private float _attackSpeed = 6f;
     [SerializeField] private float _normalMoveSpeed = 6f;
@@ -20,6 +23,8 @@ public class Checker : MonoBehaviour
     bool canMoveTheStartPosition;
     bool stillAttackToPlayer;
 
+    private Material mat;
+
     Rigidbody2D rb;
     SpriteRenderer sr;
 
@@ -31,6 +36,19 @@ public class Checker : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
 
+        switch (enemyColor)
+        {
+            case CheckerColor.Violet:
+                mat = pathNormalMat;
+                break;
+            case CheckerColor.Blue:
+                mat = normalMat;
+                break;
+            default:
+                break;
+        }
+
+
         _startPos = transform.position;
     }
 
@@ -39,6 +57,7 @@ public class Checker : MonoBehaviour
 
         PlayerDetection();
         BackToStartPos();
+
 
     }
     private void PlayerDetection()
@@ -49,18 +68,12 @@ public class Checker : MonoBehaviour
         {
             playerDetected = GetComponentInChildren<CheckerTriggerArea>().playerDetector;
 
-            print(playerDetectedByBullet);
-
             if (playerDetected || playerDetectedByBullet)
             {
-                //if (GetComponent<Patrol>() != null)
-                //{
-                //    GetComponent<Patrol>().enabled = false;
-                //}
-
                 GetComponentInChildren<CheckerTriggerArea>().playerDetector = false;
+
                 playerDetectedByBullet = false;
-                GetComponent<Patrol>().playerDetectedByBullet = false;
+
                 StartCoroutine(WaitAndDecideToAction(_checkTime));
             }
         }
@@ -79,14 +92,7 @@ public class Checker : MonoBehaviour
 
                 stillAttackToPlayer = false;
 
-                //if (GetComponent<Patrol>() != null)
-                //{
-                //    if (!GetComponent<Patrol>().enabled)
-                //    {
-                //        print("enable");
-                //        GetComponent<Patrol>().enabled = true;
-                //    }
-                //}
+                GetComponent<Patrol>().StartFollowPathCoroutine();
 
             }
 
@@ -111,16 +117,7 @@ public class Checker : MonoBehaviour
         }
         else if (_player != null && !_player.GetComponentInChildren<GuiltyValue>().isGuilty)
         {
-            sr.color = normalMat.color;
-
-            //if (GetComponent<Patrol>() != null)
-            //{
-            //    if (!GetComponent<Patrol>().enabled)
-            //    {
-            //        print("enable");
-            //        GetComponent<Patrol>().enabled = true;
-            //    }
-            //}
+            sr.color = mat.color;
 
         }
         else
@@ -147,7 +144,7 @@ public class Checker : MonoBehaviour
         yield return new WaitForSeconds(WaitToReturnTime);
         rb.velocity = Vector3.zero;
         canMoveTheStartPosition = true;
-        sr.color = normalMat.color;
+        sr.color = mat.color;
 
     }
 

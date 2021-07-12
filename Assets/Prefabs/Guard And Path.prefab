@@ -15,6 +15,7 @@ MonoBehaviour:
   pathHolder: {fileID: 6010492258971246689}
   speed: 5
   waitTime: 0.5
+  playerDetectedByBullet: 0
 --- !u!1 &6010492258308582264
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +215,11 @@ PrefabInstance:
     - target: {fileID: 8536125386573821794, guid: 9bc7d15f1eee78443b134077cbab7803,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536125386573821795, guid: 9bc7d15f1eee78443b134077cbab7803,
+        type: 3}
+      propertyPath: enemyColor
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8536125386573821807, guid: 9bc7d15f1eee78443b134077cbab7803,

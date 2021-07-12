@@ -12,28 +12,27 @@ public class Patrol : MonoBehaviour
 
     private Checker checkerScript;
 
-    //Vector3[] waypoints;
+
     GameObject[] waypoints;
     Transform[] waypointsPos;
 
-    bool routineStopped;
     public bool playerDetectedByBullet;
 
     int targetWaypointIndex;
 
     Vector3 previousPos;
 
+    bool stopMoving;
+
     private void Start()
     {
-        playerDetectedByBullet = GetComponent<Checker>().playerDetectedByBullet;
 
         targetWaypointIndex = 1;
 
         checkerScript = GetComponent<Checker>();
-        routineStopped = true;
+
 
         waypoints = new GameObject[pathHolder.childCount];
-
         
         waypointsPos = new Transform[pathHolder.childCount];
 
@@ -49,13 +48,17 @@ public class Patrol : MonoBehaviour
 
     void Update()
     {
-        if (!checkerScript.playerDetected && !checkerScript.playerDetectedByBullet && routineStopped)
-        {
-            StartCoroutine(FollowPath(waypointsPos));
-        }
 
-        //  THIS IS TEST
-        print("patrol script working!!");
+        if (checkerScript.playerDetected || checkerScript.playerDetectedByBullet)
+        {
+            print("Player Detected: " + checkerScript.playerDetected);
+            print("Player Detected By Bullet: " + checkerScript.playerDetectedByBullet);
+
+            print("coroutine stopped");
+            StopCoroutine(FollowPath(waypointsPos));
+            stopMoving = true;
+            transform.position = previousPos;
+        }
 
     }
 
@@ -76,11 +79,21 @@ public class Patrol : MonoBehaviour
 
         while (!checkerScript.playerDetected && !playerDetectedByBullet)
         {
-            routineStopped = false;
+            if (!stopMoving)
+            {
+                print("burada");
+                //transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
 
-            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+                transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+                targetWaypoint.z = 0;
+
+                transform.position = Vector2.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+            }
+
+            previousPos = transform.position;
 
             playerDetectedByBullet = GetComponent<Checker>().playerDetectedByBullet;
+
 
             if (transform.position == targetWaypoint)
             {
@@ -98,13 +111,16 @@ public class Patrol : MonoBehaviour
             print("bullet check true");
         }
         previousPos = transform.position;
-        routineStopped = true;
-        gameObject.GetComponent<Patrol>().enabled = false;
 
 
     }
 
 
+    public void StartFollowPathCoroutine()
+    {
+        stopMoving = false;
+        StartCoroutine(FollowPath(waypointsPos));
+    }
 
     private void OnDrawGizmos()
     {
