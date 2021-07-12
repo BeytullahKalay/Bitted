@@ -15,8 +15,8 @@ public class Checker : MonoBehaviour
     [SerializeField] private float _returnPosAfterSeconds = 2f;
 
     public bool playerDetectedByBullet;
+    public bool playerDetected;
 
-    bool playerDetected;
     bool canMoveTheStartPosition;
     bool stillAttackToPlayer;
 
@@ -45,16 +45,22 @@ public class Checker : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player");
 
-
         if (_player != null)
         {
             playerDetected = GetComponentInChildren<CheckerTriggerArea>().playerDetector;
 
+            print(playerDetectedByBullet);
 
             if (playerDetected || playerDetectedByBullet)
             {
+                //if (GetComponent<Patrol>() != null)
+                //{
+                //    GetComponent<Patrol>().enabled = false;
+                //}
+
                 GetComponentInChildren<CheckerTriggerArea>().playerDetector = false;
                 playerDetectedByBullet = false;
+                GetComponent<Patrol>().playerDetectedByBullet = false;
                 StartCoroutine(WaitAndDecideToAction(_checkTime));
             }
         }
@@ -66,12 +72,24 @@ public class Checker : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, _startPos, _normalMoveSpeed * Time.deltaTime);
 
+
             if (transform.position == _startPos)
             {
                 canMoveTheStartPosition = false;
 
                 stillAttackToPlayer = false;
+
+                //if (GetComponent<Patrol>() != null)
+                //{
+                //    if (!GetComponent<Patrol>().enabled)
+                //    {
+                //        print("enable");
+                //        GetComponent<Patrol>().enabled = true;
+                //    }
+                //}
+
             }
+
         }
     }
 
@@ -93,8 +111,17 @@ public class Checker : MonoBehaviour
         }
         else if (_player != null && !_player.GetComponentInChildren<GuiltyValue>().isGuilty)
         {
-            //Debug.LogError("Player != Null");
             sr.color = normalMat.color;
+
+            //if (GetComponent<Patrol>() != null)
+            //{
+            //    if (!GetComponent<Patrol>().enabled)
+            //    {
+            //        print("enable");
+            //        GetComponent<Patrol>().enabled = true;
+            //    }
+            //}
+
         }
         else
         {
@@ -121,6 +148,7 @@ public class Checker : MonoBehaviour
         rb.velocity = Vector3.zero;
         canMoveTheStartPosition = true;
         sr.color = normalMat.color;
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

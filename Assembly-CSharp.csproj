@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\CheckerScripts\Checker.cs" />
     <Compile Include="Assets\Scripts\CheckerScripts\CheckerHealthSystem.cs" />
     <Compile Include="Assets\Scripts\CheckerScripts\CheckerTriggerArea.cs" />
+    <Compile Include="Assets\Scripts\CheckerScripts\Patrol.cs" />
     <Compile Include="Assets\Scripts\DataScripts\DataOpenShoot.cs" />
     <Compile Include="Assets\Scripts\DeathCounterScripts\DeathChecker.cs" />
     <Compile Include="Assets\Scripts\DeathCounterScripts\DeathCounter.cs" />

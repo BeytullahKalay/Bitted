@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<CheckerHealthSystem>().TakeDamage(_bulletDamage);
+            collision.gameObject.GetComponent<Checker>().playerDetected = true;
         }
     }
 

@@ -147,7 +147,7 @@ PrefabInstance:
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.7586287
+      value: 0.33954662
       objectReference: {fileID: 0}
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
@@ -280,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.7586287
+      value: 0.33954662
       objectReference: {fileID: 0}
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
@@ -369,7 +369,7 @@ PrefabInstance:
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.7586287
+      value: 0.33954662
       objectReference: {fileID: 0}
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
@@ -682,7 +682,7 @@ PrefabInstance:
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.7586287
+      value: 0.33954662
       objectReference: {fileID: 0}
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
@@ -830,7 +830,7 @@ PrefabInstance:
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
       propertyPath: sentences.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
@@ -860,23 +860,24 @@ PrefabInstance:
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
       propertyPath: sentences.Array.data[1]
-      value: "\xC7ok \xFCzg\xFCn\xFCm. Seni \xF6l\xFCme yollmaka istemedim sadece...
-        neyse bo\u015Fver."
+      value: "Bu \xE7ok can s\u0131k\u0131c\u0131."
       objectReference: {fileID: 0}
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
       propertyPath: sentences.Array.data[2]
-      value: "Hatam\u0131 telafi etmek i\xE7in sana bir \u015Fey verece\u011Fim."
+      value: "Sistem seni burada \xF6ld\xFCre \xF6ld\xFCre s\u0131f\u0131rlamay\u0131
+        planl\u0131yor san\u0131r\u0131m."
       objectReference: {fileID: 0}
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
       propertyPath: sentences.Array.data[3]
-      value: "Sol taraftaki duvara do\u011Fru ilerle."
+      value: "Buna izin veremeyiz de\u011Fil mi? T\xFCm \xF6\u011Frendiklerin bo\u015Fa
+        gidecek."
       objectReference: {fileID: 0}
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
       propertyPath: sentences.Array.data[4]
-      value: "Bana g\xFCven bu sefer her \u015Fey kontrol\xFCm alt\u0131nda"
+      value: "Sol taraftaki duvara do\u011Fru ilerle. Bana g\xFCven."
       objectReference: {fileID: 0}
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
@@ -888,6 +889,16 @@ PrefabInstance:
       propertyPath: openObject
       value: 
       objectReference: {fileID: 18175218}
+    - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
+        type: 3}
+      propertyPath: sentences.Array.data[5]
+      value: "Senin i\xE7in bir \u015Fey haz\u0131rlad\u0131m."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
+        type: 3}
+      propertyPath: sentences.Array.data[6]
+      value: "E\u011Flenceli bir \u015Fey."
+      objectReference: {fileID: 0}
     - target: {fileID: 4213828439844435939, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
       propertyPath: m_Name
@@ -1498,7 +1509,7 @@ PrefabInstance:
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
       propertyPath: sentences.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
@@ -1538,7 +1549,7 @@ PrefabInstance:
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
       propertyPath: sentences.Array.data[1]
-      value: "\xDCstlerine y\xFCr\xFC belki dokunulmaz faland\u0131rlar."
+      value: "Ne ge\xE7iyor bu sistemci\u011Fin akl\u0131ndan?"
       objectReference: {fileID: 0}
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
@@ -1623,12 +1634,12 @@ PrefabInstance:
     - target: {fileID: 8200500990727863152, guid: bb112c12217fdd944a7f0ac6ca9d2777,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.8862745
+      value: 0.99215686
       objectReference: {fileID: 0}
     - target: {fileID: 8200500990727863152, guid: bb112c12217fdd944a7f0ac6ca9d2777,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.7636627
+      value: 0.75686276
       objectReference: {fileID: 0}
     - target: {fileID: 8200500990727863152, guid: bb112c12217fdd944a7f0ac6ca9d2777,
         type: 3}
@@ -1728,7 +1739,7 @@ PrefabInstance:
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
       propertyPath: sentences.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
@@ -1769,12 +1780,13 @@ PrefabInstance:
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
       propertyPath: sentences.Array.data[3]
-      value: "Ate\u015F etmek i\xE7in (Space) tu\u015Funu kullan."
+      value: "Daha sonra havai fi\u015Feklerin tad\u0131n\u0131 \xE7\u0131karabilirsin.
+        HA-HA-HA"
       objectReference: {fileID: 0}
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
       propertyPath: sentences.Array.data[4]
-      value: 
+      value: "Ate\u015F etmek i\xE7in (Space) tu\u015Funu kullan."
       objectReference: {fileID: 0}
     - target: {fileID: 4213828439844435938, guid: a94463bf9ce58784aa264a12f5cfb4ac,
         type: 3}
@@ -1890,7 +1902,7 @@ PrefabInstance:
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.7586287
+      value: 0.33954662
       objectReference: {fileID: 0}
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
@@ -2590,7 +2602,7 @@ PrefabInstance:
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.7586287
+      value: 0.33954662
       objectReference: {fileID: 0}
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
@@ -2760,7 +2772,7 @@ PrefabInstance:
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.7586287
+      value: 0.33954662
       objectReference: {fileID: 0}
     - target: {fileID: 619516430064534258, guid: 56ad7cde8e6233c45900f5ee04ad5686,
         type: 3}
